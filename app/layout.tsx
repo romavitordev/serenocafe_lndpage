@@ -1,0 +1,118 @@
+import './globals.css'
+
+import type { Metadata } from 'next'
+import { DM_Sans, Fraunces } from 'next/font/google'
+
+import { Footer } from '@/components/layout/Footer'
+import { Header } from '@/components/layout/Header'
+import { LenisProvider } from '@/components/layout/LenisProvider'
+import { PageTransition } from '@/components/layout/PageTransition'
+import { brand, endereco, imagens } from '@/lib/site'
+
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-fraunces',
+  display: 'swap',
+})
+
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  variable: '--font-dm-sans',
+  display: 'swap',
+})
+
+export const metadata: Metadata = {
+  metadataBase: new URL(brand.url),
+  title: {
+    default: `${brand.nome} — ${brand.sufixo}`,
+    template: `%s | ${brand.nome}`,
+  },
+  description: brand.descricao,
+  keywords: [
+    'café de especialidade',
+    'torrefação artesanal',
+    'micro-lotes',
+    'cafeteria',
+    'assinatura de café',
+    'Sorocaba',
+  ],
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: brand.url,
+    siteName: brand.nomeCompleto,
+    title: brand.nomeCompleto,
+    description: brand.tagline,
+    images: [{ url: imagens.og, width: 1200, height: 630, alt: brand.nomeCompleto }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: brand.nomeCompleto,
+    description: brand.tagline,
+    images: [imagens.og],
+  },
+  robots: { index: true, follow: true },
+}
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CafeOrCoffeeShop',
+  name: brand.nomeCompleto,
+  description: brand.descricao,
+  url: brand.url,
+  image: imagens.og,
+  servesCuisine: 'Café de especialidade',
+  priceRange: '$$',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: endereco.rua,
+    addressLocality: endereco.cidade,
+    addressRegion: endereco.uf,
+    addressCountry: 'BR',
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '07:00',
+      closes: '19:00',
+    },
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday', 'Sunday'],
+      opens: '08:00',
+      closes: '18:00',
+    },
+  ],
+  sameAs: [brand.instagramUrl],
+}
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="pt-BR" className={`${fraunces.variable} ${dmSans.variable}`}>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <a
+          href="#conteudo"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-terracota focus:px-5 focus:py-2 focus:text-sm focus:text-creme"
+        >
+          Pular para o conteúdo
+        </a>
+
+        <LenisProvider />
+        <Header />
+        <PageTransition>
+          <main id="conteudo" className="overflow-x-clip">
+            {children}
+          </main>
+        </PageTransition>
+        <Footer />
+      </body>
+    </html>
+  )
+}
