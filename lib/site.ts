@@ -14,7 +14,7 @@ export const brand = {
   descricao:
     'Microtorrefação e café de especialidade num casarão de 1922 no centro histórico. Micro-lotes brasileiros, torra própria toda semana e um espaço onde a pressa não entra.',
   // PLACEHOLDER — troque pelo número real (somente dígitos, com DDI).
-  whatsapp: '5515999990000',
+  whatsapp: '5515991023998',
   instagram: '@sereno.cafe',
   instagramUrl: 'https://www.instagram.com/sereno.cafe',
   email: 'ola@sereno.cafe',

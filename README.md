@@ -25,7 +25,7 @@ npm run build   # build de produção
 
 **Tudo** que é texto/preço/contato vive em [`lib/site.ts`](lib/site.ts): cardápio, grãos, assinatura, horários, endereço, Instagram e WhatsApp.
 
-> ⚠️ O WhatsApp está com número **placeholder** (`5515999990000`). Troque em `brand.whatsapp` antes de qualquer uso real.
+> ⚠️ O WhatsApp está com número **placeholder** (`5515991023998`). Troque em `brand.whatsapp` antes de qualquer uso real.
 
 As imagens são placeholders do Unsplash (marca fictícia) — os URLs também ficam em `lib/site.ts` (`imagens`, `graos[].imagem`, `jornada[].imagem`).
 
