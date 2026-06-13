@@ -3,12 +3,13 @@ import { SplitWords } from '@/components/ui/SplitWords'
 
 export function Manifesto() {
   return (
-    <section className="bg-creme py-32 md:py-44">
-      <div className="container-page text-center">
+    <section className="relative overflow-hidden bg-creme py-32 md:py-44">
+      <div className="halo-ambar left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" style={{ width: 'min(80vw, 720px)', height: 'min(80vw, 720px)' }} aria-hidden />
+      <div className="container-page relative text-center">
         <Reveal>
           <p className="kicker">Manifesto</p>
         </Reveal>
-        <h2 className="mx-auto mt-8 max-w-3xl font-serif text-[clamp(2.6rem,7vw,5rem)] leading-[1.05] tracking-tight">
+        <h2 className="mx-auto mt-8 max-w-4xl font-serif font-light leading-[1.02] tracking-tight text-espresso" style={{ fontSize: 'clamp(3rem, 8.5vw, 7rem)' }}>
           <SplitWords text="O café não é pressa." delay={0.1} />
           <br />
           <SplitWords

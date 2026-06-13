@@ -23,7 +23,7 @@ export function CardapioDestaques() {
                   <h3 className="mt-5 font-serif text-2xl tracking-tight">{item.nome}</h3>
                   <p className="mt-3 text-sm leading-7 text-espresso/60">{item.descricao}</p>
                 </div>
-                <p className="mt-6 font-serif text-xl italic text-terracota">{item.preco}</p>
+                <p className="mt-6 font-mono text-lg text-terracota">{item.preco}</p>
               </article>
             </Reveal>
           ))}

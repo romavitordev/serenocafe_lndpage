@@ -36,11 +36,11 @@ export function GraosDoMes() {
                   />
                 </div>
                 <div className="p-7">
-                  <p className="text-[0.68rem] uppercase tracking-[0.26em] text-creme/50">{grao.origem}</p>
+                  <p className="label-mono text-creme/50">{grao.origem}</p>
                   <h3 className="mt-2 font-serif text-3xl tracking-tight">{grao.nome}</h3>
                   <p className="mt-4 text-sm leading-7 text-creme/60">{grao.notas.join(' · ')}</p>
-                  <p className="mt-5 font-serif text-lg italic text-terracota">
-                    250g — {grao.preco}
+                  <p className="mt-5 flex items-baseline gap-2 font-mono text-base text-terracota">
+                    <span className="text-creme/40">250g</span> {grao.preco}
                   </p>
                 </div>
               </Link>

@@ -4,16 +4,20 @@ import { contadores } from '@/lib/site'
 
 export function Contadores() {
   return (
-    <section className="border-t border-creme/10 bg-espresso pb-24 pt-16 text-creme">
-      <div className="container-page grid gap-10 text-center sm:grid-cols-3">
+    <section className="border-t border-creme/10 bg-espresso py-20 text-creme md:py-24">
+      <div className="container-wide grid gap-px overflow-hidden sm:grid-cols-3">
         {contadores.map((item, i) => (
-          <Reveal key={item.label} delay={i * 0.12}>
-            <p className="font-serif text-5xl tracking-tight text-creme md:text-6xl">
-              <Counter valor={item.valor} sufixo={item.sufixo} />
+          <Reveal
+            key={item.label}
+            delay={i * 0.12}
+            className="relative px-4 py-6 sm:px-10 sm:[&:not(:first-child)]:border-l sm:[&:not(:first-child)]:border-creme/10"
+          >
+            <span className="label-mono text-terracota">/0{i + 1}</span>
+            <p className="mt-4 flex items-baseline gap-2">
+              <Counter valor={item.valor} className="t-num font-mono font-medium leading-none text-creme" />
+              <span className="label-mono text-creme/45">{item.sufixo.trim()}</span>
             </p>
-            <p className="mt-2 text-[0.72rem] uppercase tracking-[0.26em] text-creme/55">
-              {item.label}
-            </p>
+            <p className="mt-4 max-w-[16ch] font-serif text-lg italic text-creme/70">{item.label}</p>
           </Reveal>
         ))}
       </div>
