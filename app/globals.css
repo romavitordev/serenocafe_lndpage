@@ -106,6 +106,26 @@
   }
 }
 
+/* Trava de scroll (preloader) */
+html.trava-scroll {
+  overflow: hidden;
+}
+
+/* Cursor custom: oculta o nativo no desktop, mantém em campos de texto */
+@media (pointer: fine) {
+  html.cursor-custom,
+  html.cursor-custom a,
+  html.cursor-custom button,
+  html.cursor-custom [data-cursor] {
+    cursor: none;
+  }
+  html.cursor-custom input,
+  html.cursor-custom textarea,
+  html.cursor-custom select {
+    cursor: auto;
+  }
+}
+
 /* Lenis (smooth scroll) */
 html.lenis,
 html.lenis body {

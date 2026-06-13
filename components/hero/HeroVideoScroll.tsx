@@ -97,7 +97,7 @@ export function HeroVideoScroll() {
         />
 
         {/* Mídia: xícara + espiral — backdrop no mobile, metade direita no desktop */}
-        <div className="absolute inset-0 z-10 flex items-end justify-center md:left-[44%]">
+        <div className="absolute inset-y-0 left-0 right-0 z-10 flex items-end justify-center overflow-hidden md:left-[44%]">
           {estatico ? (
             <Image
               src={POSTER}
@@ -105,7 +105,7 @@ export function HeroVideoScroll() {
               width={1920}
               height={1080}
               priority
-              className="h-[82svh] w-full object-contain object-bottom md:h-[94svh]"
+              className="h-[82svh] w-full max-w-full object-contain object-bottom md:h-[94svh]"
               style={{ WebkitMaskImage: MASK, maskImage: MASK }}
             />
           ) : (
@@ -117,7 +117,7 @@ export function HeroVideoScroll() {
                 width={1920}
                 height={1080}
                 priority
-                className={`absolute bottom-0 h-[82svh] w-full object-contain object-bottom transition-opacity duration-500 md:h-[94svh] ${pronto ? 'opacity-0' : 'opacity-100'}`}
+                className={`absolute bottom-0 h-[82svh] w-full max-w-full object-contain object-bottom transition-opacity duration-500 md:h-[94svh] ${pronto ? 'opacity-0' : 'opacity-100'}`}
                 style={{ WebkitMaskImage: MASK, maskImage: MASK }}
               />
               <video
@@ -128,7 +128,7 @@ export function HeroVideoScroll() {
                 aria-hidden
                 width={1920}
                 height={1080}
-                className="h-[82svh] w-full object-contain object-bottom md:h-[94svh]"
+                className="h-[82svh] w-full max-w-full object-contain object-bottom md:h-[94svh]"
                 style={{ WebkitMaskImage: MASK, maskImage: MASK }}
                 onLoadedData={() => setPronto(true)}
               >
@@ -140,7 +140,7 @@ export function HeroVideoScroll() {
 
         {/* Vapor sutil em parallax */}
         {!estatico && (
-          <div ref={vapor} aria-hidden className="pointer-events-none absolute inset-0 z-20 md:left-[44%]">
+          <div ref={vapor} aria-hidden className="pointer-events-none absolute inset-y-0 left-0 right-0 z-20 md:left-[44%]">
             <div className="absolute left-1/2 top-[26%] h-64 w-40 -translate-x-1/2 rounded-full bg-creme/40 blur-3xl" />
             <div className="absolute left-[46%] top-[16%] h-44 w-24 -translate-x-1/2 rounded-full bg-white/30 blur-2xl" />
           </div>

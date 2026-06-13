@@ -8,6 +8,9 @@ import { Header } from '@/components/layout/Header'
 import { LenisProvider } from '@/components/layout/LenisProvider'
 import { PageTransition } from '@/components/layout/PageTransition'
 import { GrainOverlay } from '@/components/fx/GrainOverlay'
+import { Preloader } from '@/components/fx/Preloader'
+import { CustomCursor } from '@/components/fx/CustomCursor'
+import { ScrollProgress } from '@/components/fx/ScrollProgress'
 import { brand, endereco, imagens } from '@/lib/site'
 
 const fraunces = Fraunces({
@@ -113,6 +116,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
 
         <GrainOverlay />
+        <Preloader />
+        <CustomCursor />
+        <ScrollProgress />
         <LenisProvider />
         <Header />
         <PageTransition>
