@@ -104,6 +104,12 @@
     overflow: hidden;
     display: block;
   }
+
+  /* Campos de formulário */
+  .campo {
+    @apply w-full rounded-xl border border-espresso/15 bg-creme px-4 py-3 text-sm text-espresso transition-colors;
+    @apply placeholder:text-espresso/35 focus:border-terracota focus:outline-none focus:ring-1 focus:ring-terracota;
+  }
 }
 
 /* Trava de scroll (preloader) */

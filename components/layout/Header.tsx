@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 import { nav } from '@/lib/site'
+import { abrirReserva } from '@/components/home/ReservaModal'
 
 export function Header() {
   const pathname = usePathname()

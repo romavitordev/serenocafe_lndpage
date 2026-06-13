@@ -11,7 +11,8 @@ import { GrainOverlay } from '@/components/fx/GrainOverlay'
 import { Preloader } from '@/components/fx/Preloader'
 import { CustomCursor } from '@/components/fx/CustomCursor'
 import { ScrollProgress } from '@/components/fx/ScrollProgress'
-import { brand, endereco, imagens } from '@/lib/site'
+import { ReservaModal } from '@/components/home/ReservaModal'
+import { avaliacaoResumo, brand, cardapio, endereco, imagens } from '@/lib/site'
 
 const fraunces = Fraunces({
   subsets: ['latin'],
@@ -97,6 +98,20 @@ const jsonLd = {
       closes: '18:00',
     },
   ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: avaliacaoResumo.media,
+    reviewCount: String(avaliacaoResumo.total),
+    bestRating: '5',
+  },
+  hasMenu: {
+    '@type': 'Menu',
+    hasMenuSection: cardapio.map((c) => ({
+      '@type': 'MenuSection',
+      name: c.categoria,
+      hasMenuItem: c.itens.map((it) => ({ '@type': 'MenuItem', name: it.nome })),
+    })),
+  },
   sameAs: [brand.instagramUrl],
 }
 
@@ -127,6 +142,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
         </PageTransition>
         <Footer />
+        <ReservaModal />
       </body>
     </html>
   )
