@@ -29,12 +29,45 @@
     @apply mx-auto w-full max-w-page px-6 md:px-10;
   }
 
+  .container-wide {
+    @apply mx-auto w-full max-w-wide px-6 md:px-10;
+  }
+
+  /* Rótulos em mono — a assinatura editorial */
   .kicker {
-    @apply text-[0.68rem] font-medium uppercase tracking-[0.3em] text-terracota;
+    @apply font-mono text-[0.7rem] font-medium uppercase tracking-[0.28em] text-terracota;
   }
 
   .kicker-creme {
-    @apply text-[0.68rem] font-medium uppercase tracking-[0.3em] text-creme/60;
+    @apply font-mono text-[0.7rem] font-medium uppercase tracking-[0.28em] text-creme/55;
+  }
+
+  .label-mono {
+    @apply font-mono text-[0.7rem] uppercase tracking-[0.28em];
+  }
+
+  /* Escala tipográfica fluida */
+  .t-display {
+    font-size: clamp(4.5rem, 16vw, 13rem);
+    line-height: 0.92;
+    letter-spacing: -0.02em;
+  }
+
+  .t-h1 {
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+  }
+
+  .t-h2 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    line-height: 1.06;
+    letter-spacing: -0.01em;
+  }
+
+  .t-num {
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 0.9;
   }
 
   .btn {
@@ -54,7 +87,22 @@
   }
 
   .chip {
-    @apply inline-flex items-center rounded-full border border-current px-3.5 py-1 text-[0.7rem] uppercase tracking-[0.18em];
+    @apply inline-flex items-center rounded-full border border-current px-3.5 py-1 font-mono text-[0.68rem] uppercase tracking-[0.18em];
+  }
+
+  /* Halo âmbar de "luz da manhã" atrás de títulos/heros */
+  .halo-ambar {
+    position: absolute;
+    pointer-events: none;
+    border-radius: 9999px;
+    background: radial-gradient(closest-side, rgba(190, 94, 54, 0.18), transparent 72%);
+    filter: blur(8px);
+  }
+
+  /* Máscara de reveal por linha (tipografia cinética) */
+  .linha-mask {
+    overflow: hidden;
+    display: block;
   }
 }
 

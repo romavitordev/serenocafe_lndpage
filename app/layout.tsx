@@ -1,12 +1,13 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { DM_Sans, Fraunces } from 'next/font/google'
+import { DM_Sans, Fraunces, JetBrains_Mono } from 'next/font/google'
 
 import { Footer } from '@/components/layout/Footer'
 import { Header } from '@/components/layout/Header'
 import { LenisProvider } from '@/components/layout/LenisProvider'
 import { PageTransition } from '@/components/layout/PageTransition'
+import { GrainOverlay } from '@/components/fx/GrainOverlay'
 import { brand, endereco, imagens } from '@/lib/site'
 
 const fraunces = Fraunces({
@@ -19,6 +20,13 @@ const fraunces = Fraunces({
 const dmSans = DM_Sans({
   subsets: ['latin'],
   variable: '--font-dm-sans',
+  display: 'swap',
+})
+
+const jetbrains = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-mono',
   display: 'swap',
 })
 
@@ -91,7 +99,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${fraunces.variable} ${dmSans.variable}`}>
+    <html lang="pt-BR" className={`${fraunces.variable} ${dmSans.variable} ${jetbrains.variable}`}>
       <body>
         <script
           type="application/ld+json"
@@ -104,6 +112,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Pular para o conteúdo
         </a>
 
+        <GrainOverlay />
         <LenisProvider />
         <Header />
         <PageTransition>
