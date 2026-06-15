@@ -56,6 +56,8 @@ export const waMensagens = {
     `Oi! Quero pedir o grão ${nome} (250g — ${preco}). Como funciona a retirada ou entrega?`,
   assinatura: (plano: string) =>
     `Oi! Quero assinar o Sereno — plano ${plano}. Pode me explicar os próximos passos?`,
+  reserva: (nome: string, pessoas: string, data: string, horario: string, obs: string) =>
+    `Olá! Quero reservar uma mesa no Sereno — ${pessoas} pessoa(s), ${data} às ${horario}. Nome: ${nome}.${obs ? ` Obs: ${obs}` : ''}`,
 }
 
 /* ------------------------------------------------------------------ */
@@ -305,4 +307,83 @@ export const imagens = {
     src: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80',
     alt: 'Xícaras de café com latte art entre plantas',
   },
+}
+
+/* ------------------------------------------------------------------ */
+/* Avaliações (prova social)                                           */
+/* ------------------------------------------------------------------ */
+
+export type Avaliacao = { nome: string; nota: number; texto: string; quando: string }
+
+export const avaliacoes: Avaliacao[] = [
+  { nome: 'Camila Prado', nota: 5, quando: 'há 2 semanas', texto: 'Voltei três vezes na mesma semana. O coado da casa virou meu ritual de manhã.' },
+  { nome: 'Henrique Salles', nota: 5, quando: 'há 1 mês', texto: 'O melhor espresso de Sorocaba. E ainda lembram o seu nome.' },
+  { nome: 'Marina Couto', nota: 5, quando: 'há 3 semanas', texto: 'Silencioso, lindo, perfeito pra trabalhar. Os grãos pra levar são outro nível.' },
+  { nome: 'Rafael Tavares', nota: 4, quando: 'há 2 meses', texto: 'Pão de fermentação natural impecável. Só queria que abrissem na segunda!' },
+  { nome: 'Júlia Meneses', nota: 5, quando: 'há 1 semana', texto: 'Assino o clube há meses. Cada mês uma origem — virei outra pessoa no café.' },
+  { nome: 'Diego Antunes', nota: 5, quando: 'há 5 dias', texto: 'Sentei, respirei, tomei. Saí mais leve do que entrei.' },
+]
+
+export const avaliacaoResumo = {
+  media: (avaliacoes.reduce((s, a) => s + a.nota, 0) / avaliacoes.length).toFixed(1),
+  total: avaliacoes.length,
+}
+
+/* ------------------------------------------------------------------ */
+/* Instagram (grade estática — sem API)                                */
+/* ------------------------------------------------------------------ */
+
+export const instagram = [
+  { src: 'https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=600&q=75', alt: 'Salão do café com luz natural' },
+  { src: 'https://images.unsplash.com/photo-1497515114629-f71d768fd07c?auto=format&fit=crop&w=600&q=75', alt: 'Xícara fumegante sobre madeira' },
+  { src: 'https://images.unsplash.com/photo-1524350876685-274059332603?auto=format&fit=crop&w=600&q=75', alt: 'Grãos de café em saca de juta' },
+  { src: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=75', alt: 'Latte art entre plantas' },
+  { src: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=600&q=75', alt: 'Balcão do café visto da janela' },
+  { src: 'https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&w=600&q=75', alt: 'Clientes no balcão' },
+  { src: 'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=600&q=75', alt: 'Café moído e portafilter' },
+  { src: 'https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=600&q=75', alt: 'Bancada de madeira com banquetas' },
+]
+
+/* ------------------------------------------------------------------ */
+/* FAQ                                                                 */
+/* ------------------------------------------------------------------ */
+
+export const faq = [
+  { q: 'Aceitam pets?', a: 'Sim — o jardim interno é todo pet-friendly. Pode trazer o seu.' },
+  { q: 'Tem wi-fi e tomadas?', a: 'Tem, no salão dos fundos. Pedimos só liberar as mesas da frente nos horários cheios.' },
+  { q: 'Dá pra trabalhar ou estudar?', a: 'À vontade, fora dos picos de fim de semana. O Sereno foi feito pra demorar.' },
+  { q: 'Fazem eventos privados?', a: 'Sim, o casarão fecha pra grupos. Fale com a gente pra orçar.' },
+  { q: 'Como encomendo grãos?', a: 'Pelo WhatsApp: você escolhe o lote, retira na loja ou recebe na região.' },
+  { q: 'Quais as formas de pagamento?', a: 'Pix, débito, crédito e vale-refeição.' },
+]
+
+/* ------------------------------------------------------------------ */
+/* Reserva, Clube (newsletter) e Delivery                              */
+/* ------------------------------------------------------------------ */
+
+export const reserva = {
+  titulo: 'Guarde uma mesa',
+  texto: 'Sem fila, sem pressa. Diz quando vem que a gente deixa a melhor mesa esperando — e o coado pronto.',
+  horarios: ['08:00', '09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+  pessoas: ['1', '2', '3', '4', '5', '6+'],
+  sucesso: 'Tudo certo? Vamos te responder pelo WhatsApp em instantes.',
+}
+
+export const newsletter = {
+  titulo: 'Entre para o Clube Sereno',
+  sub: 'Receba o grão do mês, eventos e o que acabou de sair do forno.',
+  botao: 'Quero entrar',
+  sucesso: 'Bem-vindo. A próxima manhã chega no seu e-mail.',
+  // Troque pelo seu endpoint real do Formspree. Enquanto for placeholder,
+  // o formulário simula o envio (modo demo) sem chamar servidor.
+  formspree: 'https://formspree.io/f/SEU_ENDPOINT',
+}
+
+export const delivery = {
+  titulo: 'Também vai até você',
+  itens: [
+    { nome: 'Peça no iFood', url: 'https://www.ifood.com.br/', externo: true },
+    { nome: 'Peça no Goomer', url: 'https://goomer.app/', externo: true },
+  ],
+  retirada: 'Ou retire na loja — é só chamar no WhatsApp.',
 }

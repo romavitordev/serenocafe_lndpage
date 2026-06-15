@@ -3,10 +3,11 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 import { nav } from '@/lib/site'
+import { abrirReserva } from '@/components/home/ReservaModal'
 
 export function Header() {
   const pathname = usePathname()
@@ -69,9 +70,20 @@ export function Header() {
               )}
             </Link>
           ))}
-          <Link href="/graos#assinatura" className="btn-primary !px-5 !py-2.5 text-[0.78rem]">
-            Assinar café
+          <Link
+            href="/graos#assinatura"
+            className="text-[0.78rem] uppercase tracking-[0.22em] opacity-65 transition-opacity hover:opacity-100"
+          >
+            Assinar
           </Link>
+          <button
+            type="button"
+            onClick={abrirReserva}
+            data-cursor="reservar"
+            className="btn-primary !px-5 !py-2.5 text-[0.78rem]"
+          >
+            Reservar
+          </button>
         </nav>
 
         <button
@@ -85,15 +97,13 @@ export function Header() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {aberto && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35 }}
-            className="fixed inset-0 top-16 z-[75] bg-espresso text-creme md:hidden"
-          >
+      {aberto && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35 }}
+          className="fixed inset-0 top-16 z-[75] bg-espresso text-creme md:hidden"
+        >
             <nav className="container-page flex flex-col gap-2 pt-10" aria-label="Menu móvel">
               {nav.map((item, i) => (
                 <motion.div
@@ -114,16 +124,18 @@ export function Header() {
                 initial={{ opacity: 0, y: 18 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.34, duration: 0.5 }}
-                className="pt-8"
+                className="flex flex-col gap-3 pt-8"
               >
-                <Link href="/graos#assinatura" className="btn-primary w-full">
+                <button type="button" onClick={abrirReserva} className="btn-primary w-full">
+                  Reservar mesa
+                </button>
+                <Link href="/graos#assinatura" className="btn-ghost-light w-full">
                   Assinar café
                 </Link>
               </motion.div>
             </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </motion.div>
+      )}
     </header>
   )
 }
