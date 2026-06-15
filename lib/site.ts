@@ -15,8 +15,8 @@ export const brand = {
     'Microtorrefação e café de especialidade num casarão de 1922 no centro histórico. Micro-lotes brasileiros, torra própria toda semana e um espaço onde a pressa não entra.',
   // PLACEHOLDER — troque pelo número real (somente dígitos, com DDI).
   whatsapp: '5515991023998',
-  instagram: '@sereno.cafe',
-  instagramUrl: 'https://www.instagram.com/sereno.cafe',
+  instagram: '@sereno.cff',
+  instagramUrl: 'https://www.instagram.com/sereno.cff',
   email: 'ola@sereno.cafe',
   url: 'https://sereno.cafe',
 }
@@ -225,7 +225,7 @@ export const jornada = [
     numero: '01',
     titulo: 'Na fazenda',
     texto:
-      'Micro-lotes escolhidos no pé. Cerrado, Sul de Minas, Chapada — a gente visita, prova e escolhe junto com quem planta.',
+      'Tudo começa no pé. A gente sobe a serra, prova o que está maduro e escolhe micro-lotes com quem plantou — Cerrado, Sul de Minas, Chapada.',
     imagem:
       'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80',
     imagemAlt: 'Campo ao amanhecer, com o sol nascendo sobre a lavoura',
@@ -235,7 +235,7 @@ export const jornada = [
     numero: '02',
     titulo: 'Na torra',
     texto:
-      'Lotes pequenos, perfis claros. Torramos toda semana, nos fundos do casarão, em levas de 12 kg.',
+      'De volta ao casarão, torramos em levas pequenas, toda semana. Fogo baixo, ouvido atento ao estalo — cada lote parado no seu ponto exato.',
     imagem:
       'https://images.unsplash.com/photo-1442550528053-c431ecb55509?auto=format&fit=crop&w=1600&q=80',
     imagemAlt: 'Close de grãos de café recém-torrados',
@@ -245,7 +245,7 @@ export const jornada = [
     numero: '03',
     titulo: 'Na xícara',
     texto:
-      'Notas que aparecem sem esforço: chocolate, laranja, morango. O resto é silêncio.',
+      'O resto é com você. Notas que chegam sem esforço — chocolate, laranja, morango — e um silêncio que só pede mais um gole.',
     imagem:
       'https://images.unsplash.com/photo-1522992319-0365e5f11656?auto=format&fit=crop&w=1600&q=80',
     imagemAlt: 'Café sendo servido na xícara, com vapor subindo',

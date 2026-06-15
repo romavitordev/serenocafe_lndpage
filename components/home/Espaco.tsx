@@ -8,26 +8,35 @@ import { Reveal } from '@/components/ui/Reveal'
 import { historia, imagens } from '@/lib/site'
 
 const fotos = [...imagens.espaco, ...imagens.visite]
+// Render duplicado pro loop infinito (wrap modular por 1 set).
+const loopFotos = [...fotos, ...fotos]
+const DERIVA = -0.5 // deriva contínua (carrossel), px/frame
 
 /**
- * "O espaço" — galeria arrastável com inércia e skew por velocidade
- * (a faixa "estica" conforme você arrasta rápido). Interação-assinatura:
- * tátil, fluida, feita pra dar vontade de arrastar de novo.
+ * "O espaço" — galeria arrastável INFINITA. Deriva sozinha como um
+ * carrossel; ao arrastar, ganha inércia e a faixa "estica" (skew por
+ * velocidade). Quando um conjunto sai, o próximo é o mesmo — loop sem fim.
  * Em reduced-motion, vira um scroll horizontal nativo e estático.
  */
 export function Espaco() {
   const faixa = useRef<HTMLDivElement>(null)
-  const viewport = useRef<HTMLDivElement>(null)
   const [reduz, setReduz] = useState(false)
   const [arrastando, setArrastando] = useState(false)
 
-  // estado da física (em refs pra não re-renderizar a cada frame)
   const pos = useRef(0)
-  const alvo = useRef(0)
-  const vel = useRef(0)
+  const vel = useRef(0) // velocidade extra de arrasto/inércia (alimenta o skew)
+  const setW = useRef(0) // largura exata de UM conjunto
   const ultimoX = useRef(0)
   const raf = useRef(0)
-  const limite = useRef(0)
+  const arrastandoRef = useRef(false)
+
+  const medir = useCallback(() => {
+    const f = faixa.current
+    if (!f || f.children.length < fotos.length + 1) return
+    const a = (f.children[0] as HTMLElement).offsetLeft
+    const b = (f.children[fotos.length] as HTMLElement).offsetLeft
+    setW.current = b - a
+  }, [])
 
   const aplica = useCallback(() => {
     const f = faixa.current
@@ -40,41 +49,34 @@ export function Espaco() {
     })
   }, [])
 
-  const medirLimite = useCallback(() => {
-    const f = faixa.current
-    const v = viewport.current
-    if (!f || !v) return
-    limite.current = Math.min(0, v.clientWidth - f.scrollWidth)
-  }, [])
-
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       setReduz(true)
       return
     }
-    medirLimite()
-    window.addEventListener('resize', medirLimite)
+    medir()
+    window.addEventListener('resize', medir)
 
     const loop = () => {
       if (!arrastandoRef.current) {
-        // inércia
-        alvo.current += vel.current
+        pos.current += vel.current + DERIVA
         vel.current *= 0.92
-        if (Math.abs(vel.current) < 0.05) vel.current = 0
+        if (Math.abs(vel.current) < 0.03) vel.current = 0
       }
-      alvo.current = Math.max(limite.current, Math.min(0, alvo.current))
-      pos.current += (alvo.current - pos.current) * 0.12
+      const w = setW.current
+      if (w > 0) {
+        if (pos.current <= -w) pos.current += w
+        else if (pos.current > 0) pos.current -= w
+      }
       aplica()
       raf.current = requestAnimationFrame(loop)
     }
     raf.current = requestAnimationFrame(loop)
     return () => {
       cancelAnimationFrame(raf.current)
-      window.removeEventListener('resize', medirLimite)
+      window.removeEventListener('resize', medir)
     }
-  }, [aplica, medirLimite])
-
-  const arrastandoRef = useRef(false)
+  }, [aplica, medir])
 
   const onDown = (e: React.PointerEvent) => {
     if (reduz) return
@@ -88,7 +90,7 @@ export function Espaco() {
     if (!arrastandoRef.current) return
     const dx = e.clientX - ultimoX.current
     ultimoX.current = e.clientX
-    alvo.current += dx
+    pos.current += dx
     vel.current = dx
   }
   const onUp = () => {
@@ -121,7 +123,6 @@ export function Espaco() {
       </div>
 
       <div
-        ref={viewport}
         className="mt-14 overflow-hidden"
         style={{ cursor: arrastando ? 'grabbing' : 'grab' }}
         data-cursor="arraste"
@@ -132,33 +133,34 @@ export function Espaco() {
           onPointerMove={onMove}
           onPointerUp={onUp}
           onPointerCancel={onUp}
-          className="flex w-max gap-6 px-6 will-change-transform select-none md:px-10"
+          className="flex w-max gap-6 px-3 will-change-transform select-none"
           style={{ touchAction: 'pan-y' }}
         >
-          {fotos.map((foto, i) => (
-            <figure key={i} className="group relative shrink-0" style={{ width: 'clamp(16rem, 32vw, 26rem)' }}>
-              <div data-card className="relative aspect-[4/5] overflow-hidden rounded-2xl will-change-transform">
-                <Image
-                  src={foto.src}
-                  alt={foto.alt}
-                  fill
-                  draggable={false}
-                  sizes="(max-width: 768px) 70vw, 32vw"
-                  className="pointer-events-none object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-espresso/50 to-transparent opacity-60" />
-              </div>
-              <figcaption className="absolute bottom-4 left-4 right-4 label-mono text-creme">
-                {String(i + 1).padStart(2, '0')} — {foto.alt.split(',')[0]}
-              </figcaption>
-            </figure>
-          ))}
+          {loopFotos.map((foto, i) => {
+            const n = (i % fotos.length) + 1
+            return (
+              <figure key={i} aria-hidden={i >= fotos.length} className="group relative shrink-0" style={{ width: 'clamp(16rem, 32vw, 26rem)' }}>
+                <div data-card className="relative aspect-[4/5] overflow-hidden rounded-2xl will-change-transform">
+                  <Image
+                    src={foto.src}
+                    alt={foto.alt}
+                    fill
+                    draggable={false}
+                    sizes="(max-width: 768px) 70vw, 32vw"
+                    className="pointer-events-none object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-espresso/50 to-transparent opacity-60" />
+                </div>
+                <figcaption className="absolute bottom-4 left-4 right-4 label-mono text-creme">
+                  {String(n).padStart(2, '0')} — {foto.alt.split(',')[0]}
+                </figcaption>
+              </figure>
+            )
+          })}
         </div>
       </div>
 
-      <div className="container-page">
-        <Rodape />
-      </div>
+      <Rodape />
     </section>
   )
 }
@@ -177,8 +179,8 @@ function Cabecalho() {
 
 function Rodape() {
   return (
-    <div className="mt-14 flex flex-wrap items-center justify-between gap-4">
-      <span className="label-mono text-espresso/40">arraste para explorar →</span>
+    <div className="container-page mt-14 flex flex-wrap items-center justify-between gap-4">
+      <span className="label-mono text-espresso/40">arraste — o espaço não acaba</span>
       <Link href="/visite" className="btn-ghost-dark">
         Conheça o casarão
       </Link>

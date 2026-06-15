@@ -119,7 +119,10 @@ export function Jornada() {
               </div>
 
               <div className="order-1 md:order-2">
-                <p className="font-mono text-5xl font-medium text-terracota/80 md:text-7xl">{cena.numero}</p>
+                <p className="font-mono text-5xl font-medium text-terracota/80 md:text-7xl">
+                  {cena.numero}
+                  <span className="ml-2 text-2xl text-creme/30 md:text-3xl">/ 0{jornada.length}</span>
+                </p>
                 <h3 className="mt-3 font-serif text-4xl tracking-tight md:text-6xl">{cena.titulo}</h3>
                 <p className="mt-5 max-w-md text-base leading-8 text-creme/70">{cena.texto}</p>
                 <div className="mt-7 flex flex-wrap gap-2 text-creme/75">
@@ -145,7 +148,10 @@ function CenaEstatica({ cena }: { cena: (typeof jornada)[number] }) {
         <Image src={cena.imagem} alt={cena.imagemAlt} fill sizes="(max-width: 768px) 90vw, 45vw" className="object-cover" />
       </div>
       <div>
-        <p className="font-serif text-lg italic text-terracota">{cena.numero}</p>
+        <p className="font-mono text-4xl font-medium text-terracota/80">
+          {cena.numero}
+          <span className="ml-2 text-xl text-creme/30">/ 0{jornada.length}</span>
+        </p>
         <h3 className="mt-3 font-serif text-4xl tracking-tight md:text-5xl">{cena.titulo}</h3>
         <p className="mt-5 max-w-md text-base leading-8 text-creme/70">{cena.texto}</p>
         <div className="mt-7 flex flex-wrap gap-2 text-creme/75">

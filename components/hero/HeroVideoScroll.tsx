@@ -84,7 +84,7 @@ export function HeroVideoScroll() {
       aria-label="Sereno — o instante antes do dia começar"
       className={estatico ? 'relative h-[100svh]' : 'relative h-[260vh]'}
     >
-      <div className="sticky top-0 h-[100svh] overflow-hidden bg-creme">
+      <div className="sticky top-0 h-[100svh] overflow-hidden bg-white">
         {/* Halo âmbar — atrás da xícara (centro no mobile, direita no desktop) */}
         <div
           ref={halo}
@@ -102,8 +102,8 @@ export function HeroVideoScroll() {
               width={1920}
               height={1080}
               priority
-              className="h-[82svh] w-full max-w-full object-contain object-bottom md:h-[94svh]"
-              style={{ mixBlendMode: 'multiply' }}
+              className="h-[82svh] w-full max-w-full object-contain object-bottom md:object-center md:h-[94svh]"
+              style={{}}
             />
           ) : (
             <>
@@ -114,8 +114,8 @@ export function HeroVideoScroll() {
                 width={1920}
                 height={1080}
                 priority
-                className={`absolute bottom-0 h-[82svh] w-full max-w-full object-contain object-bottom transition-opacity duration-500 md:h-[94svh] ${pronto ? 'opacity-0' : 'opacity-100'}`}
-                style={{ mixBlendMode: 'multiply' }}
+                className={`absolute bottom-0 h-[82svh] w-full max-w-full object-contain object-bottom md:object-center transition-opacity duration-500 md:h-[94svh] ${pronto ? 'opacity-0' : 'opacity-100'}`}
+                style={{}}
               />
               <video
                 ref={video}
@@ -125,8 +125,8 @@ export function HeroVideoScroll() {
                 aria-hidden
                 width={1920}
                 height={1080}
-                className="h-[82svh] w-full max-w-full object-contain object-bottom md:h-[94svh]"
-                style={{ mixBlendMode: 'multiply' }}
+                className="h-[82svh] w-full max-w-full object-contain object-bottom md:object-center md:h-[94svh]"
+                style={{}}
                 onLoadedData={() => setPronto(true)}
               >
                 <source src={src} type="video/mp4" />
@@ -144,7 +144,7 @@ export function HeroVideoScroll() {
         )}
 
         {/* Véu creme pra legibilidade do texto (mais forte no mobile) */}
-        <div aria-hidden className="absolute inset-0 z-20 bg-gradient-to-b from-creme/80 via-creme/10 to-transparent md:bg-gradient-to-r md:from-creme md:via-creme/70 md:to-transparent" />
+        <div aria-hidden className="absolute inset-0 z-20 bg-gradient-to-b from-white/85 via-white/20 to-transparent md:bg-gradient-to-r md:from-white md:via-white/70 md:to-transparent" />
 
         {/* Texto — coluna esquerda, editorial */}
         <div className="absolute inset-0 z-30 flex items-center">
