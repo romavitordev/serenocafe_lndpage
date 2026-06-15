@@ -11,6 +11,7 @@ import { GrainOverlay } from '@/components/fx/GrainOverlay'
 import { Preloader } from '@/components/fx/Preloader'
 import { CustomCursor } from '@/components/fx/CustomCursor'
 import { ScrollProgress } from '@/components/fx/ScrollProgress'
+import { AmbientSound } from '@/components/fx/AmbientSound'
 import { ReservaModal } from '@/components/home/ReservaModal'
 import { avaliacaoResumo, brand, cardapio, endereco, imagens } from '@/lib/site'
 
@@ -143,6 +144,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </PageTransition>
         <Footer />
         <ReservaModal />
+        <AmbientSound />
       </body>
     </html>
   )
