@@ -11,6 +11,13 @@
     @apply bg-creme font-sans text-espresso antialiased;
   }
 
+  /* Respiro pra navbar inferior do mobile não cobrir o conteúdo final */
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(4rem + env(safe-area-inset-bottom));
+    }
+  }
+
   ::selection {
     @apply bg-terracota text-creme;
   }

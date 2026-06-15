@@ -43,7 +43,7 @@ export function ScrollProgress() {
         type="button"
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         aria-label="Voltar ao topo"
-        className={`fixed bottom-5 right-5 z-[120] inline-flex h-11 w-11 items-center justify-center rounded-full border border-espresso/20 bg-creme/80 text-espresso backdrop-blur-sm transition-all duration-300 hover:border-terracota hover:text-terracota ${
+        className={`fixed bottom-[5.5rem] right-5 z-[120] inline-flex h-11 w-11 items-center justify-center rounded-full border border-espresso/20 bg-creme/80 text-espresso backdrop-blur-sm transition-all duration-300 hover:border-terracota hover:text-terracota md:bottom-5 ${
           mostraTopo ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0'
         }`}
       >

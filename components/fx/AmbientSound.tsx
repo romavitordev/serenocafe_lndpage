@@ -75,7 +75,7 @@ export function AmbientSound() {
       onClick={() => (ativo ? desligar() : ligar())}
       aria-pressed={ativo}
       aria-label={ativo ? 'Desligar som ambiente' : 'Ligar som ambiente'}
-      className="fixed bottom-5 left-5 z-[120] inline-flex items-center gap-2.5 rounded-full border border-espresso/15 bg-creme/80 px-4 py-2.5 text-espresso backdrop-blur-sm transition-colors hover:border-terracota"
+      className="fixed bottom-5 left-5 z-[120] hidden items-center gap-2.5 rounded-full border border-espresso/15 bg-creme/80 px-4 py-2.5 text-espresso backdrop-blur-sm transition-colors hover:border-terracota md:inline-flex"
     >
       <span className="flex h-4 items-end gap-[3px]" aria-hidden>
         {[0, 1, 2, 3].map((i) => (

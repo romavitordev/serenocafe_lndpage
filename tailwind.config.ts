@@ -33,10 +33,20 @@ const config: Config = {
           '0%, 100%': { transform: 'scaleY(0.35)' },
           '50%': { transform: 'scaleY(1)' },
         },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+        kenburns: {
+          from: { transform: 'scale(1)' },
+          to: { transform: 'scale(1.1)' },
+        },
       },
       animation: {
         descer: 'descer 1.8s ease-in-out infinite',
         onda: 'onda 0.9s ease-in-out infinite',
+        marquee: 'marquee 60s linear infinite',
+        kenburns: 'kenburns 16s ease-in-out infinite alternate',
       },
     },
   },

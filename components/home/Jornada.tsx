@@ -107,15 +107,15 @@ export function Jornada() {
               }}
               className="absolute inset-0 grid content-center gap-8 px-6 will-change-transform md:grid-cols-2 md:items-center md:gap-16 md:px-24"
             >
-              <div className="relative order-2 aspect-[4/5] max-h-[44svh] w-full overflow-hidden rounded-2xl md:order-1 md:max-h-[60svh]">
+              <div className="relative order-2 aspect-[4/5] max-h-[46svh] w-full overflow-hidden rounded-[20px] ring-1 ring-creme/10 md:order-1 md:max-h-[66svh]">
                 <Image
                   src={cena.imagem}
                   alt={cena.imagemAlt}
                   fill
                   sizes="(max-width: 768px) 90vw, 45vw"
-                  className="object-cover"
+                  className="animate-kenburns object-cover"
                 />
-                <div className="absolute inset-0 bg-espresso/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-espresso/40 to-transparent" />
               </div>
 
               <div className="order-1 md:order-2">
@@ -123,14 +123,11 @@ export function Jornada() {
                   {cena.numero}
                   <span className="ml-2 text-2xl text-creme/30 md:text-3xl">/ 0{jornada.length}</span>
                 </p>
-                <h3 className="mt-3 font-serif text-4xl tracking-tight md:text-6xl">{cena.titulo}</h3>
+                <h3 className="mt-4 font-serif text-4xl tracking-tight md:text-6xl">{cena.titulo}</h3>
                 <p className="mt-5 max-w-md text-base leading-8 text-creme/70">{cena.texto}</p>
-                <div className="mt-7 flex flex-wrap gap-2 text-creme/75">
-                  {cena.notas.map((nota) => (
-                    <span key={nota} className="chip border-creme/30">
-                      {nota}
-                    </span>
-                  ))}
+                <div className="mt-8 border-t border-creme/12 pt-5">
+                  <p className="label-mono text-creme/40">Notas de prova</p>
+                  <p className="mt-2 font-serif text-xl italic text-creme/90">{cena.notas.join(' · ')}</p>
                 </div>
               </div>
             </div>
@@ -152,14 +149,11 @@ function CenaEstatica({ cena }: { cena: (typeof jornada)[number] }) {
           {cena.numero}
           <span className="ml-2 text-xl text-creme/30">/ 0{jornada.length}</span>
         </p>
-        <h3 className="mt-3 font-serif text-4xl tracking-tight md:text-5xl">{cena.titulo}</h3>
+        <h3 className="mt-4 font-serif text-4xl tracking-tight md:text-5xl">{cena.titulo}</h3>
         <p className="mt-5 max-w-md text-base leading-8 text-creme/70">{cena.texto}</p>
-        <div className="mt-7 flex flex-wrap gap-2 text-creme/75">
-          {cena.notas.map((nota) => (
-            <span key={nota} className="chip border-creme/30">
-              {nota}
-            </span>
-          ))}
+        <div className="mt-8 border-t border-creme/12 pt-5">
+          <p className="label-mono text-creme/40">Notas de prova</p>
+          <p className="mt-2 font-serif text-xl italic text-creme/90">{cena.notas.join(' · ')}</p>
         </div>
       </div>
     </div>
