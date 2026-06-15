@@ -15,7 +15,7 @@ export function Faq() {
         <Reveal>
           <p className="kicker">Perguntas</p>
           <h2 className="mt-5 font-serif text-3xl tracking-tight md:text-5xl">
-            Antes de <span className="italic text-terracota">vir.</span>
+            Antes de vir.
           </h2>
         </Reveal>
 

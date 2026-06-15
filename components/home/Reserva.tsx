@@ -12,7 +12,7 @@ export function Reserva() {
         <Reveal>
           <p className="kicker-creme">Reserva</p>
           <h2 className="mt-5 max-w-md text-balance font-serif text-4xl leading-[1.06] tracking-tight md:text-6xl">
-            Guarde uma mesa <span className="italic text-terracota">à sua espera.</span>
+            Guarde uma mesa à sua espera.
           </h2>
           <p className="mt-6 max-w-md text-base leading-8 text-creme/65">{reserva.texto}</p>
           <button type="button" onClick={abrirReserva} data-cursor="reservar" className="btn-primary mt-8">

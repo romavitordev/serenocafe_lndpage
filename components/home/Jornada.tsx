@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { jornada } from '@/lib/site'
 
 /**
- * "A jornada do grão" — seção pinada com scrub.
+ * "02 — A jornada do grão" — seção pinada com scrub.
  * Trilho de 300vh; o palco fica sticky enquanto as três cenas
  * (fazenda → torra → xícara) se cruzam em fade + leve escala.
  * Com prefers-reduced-motion, vira três blocos estáticos empilhados.
@@ -76,7 +76,7 @@ export function Jornada() {
     return (
       <section className="bg-espresso py-24 text-creme">
         <div className="container-page space-y-20">
-          <p className="kicker-creme">A jornada do grão</p>
+          <p className="kicker-creme">02 — A jornada do grão</p>
           {jornada.map((cena) => (
             <CenaEstatica key={cena.numero} cena={cena} />
           ))}
@@ -86,7 +86,7 @@ export function Jornada() {
   }
 
   return (
-    <section ref={trilho} className="relative h-[340vh] bg-espresso text-creme" aria-label="A jornada do grão">
+    <section ref={trilho} className="relative h-[340vh] bg-espresso text-creme" aria-label="02 — A jornada do grão">
       <div className="sticky top-0 flex h-[100svh] items-center overflow-hidden">
         {/* Barra de progresso vertical */}
         <div
@@ -97,7 +97,7 @@ export function Jornada() {
         </div>
 
         <div className="container-page relative h-full w-full">
-          <p className="kicker-creme absolute left-6 top-24 z-10 hidden md:left-24 md:block">A jornada do grão</p>
+          <p className="kicker-creme absolute left-6 top-24 z-10 hidden md:left-24 md:block">02 — A jornada do grão</p>
 
           {jornada.map((cena, i) => (
             <div

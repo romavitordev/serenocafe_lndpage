@@ -9,9 +9,9 @@ export function GraosDoMes() {
     <section className="bg-espresso py-28 text-creme md:py-40">
       <div className="container-page">
         <Reveal>
-          <p className="kicker-creme">Torrefação própria</p>
+          <p className="kicker-creme">05 — Torrefação própria</p>
           <h2 className="mt-6 max-w-2xl text-balance font-serif text-4xl leading-[1.08] tracking-tight md:text-6xl">
-            Os grãos <span className="italic text-terracota">do mês.</span>
+            Os grãos do mês.
           </h2>
           <p className="mt-6 max-w-xl text-base leading-8 text-creme/65">
             Micro-lotes brasileiros, torrados toda semana nos fundos do casarão.

@@ -166,9 +166,9 @@ export function Espaco() {
 function Cabecalho() {
   return (
     <Reveal>
-      <p className="kicker">O espaço</p>
+      <p className="kicker">03 — O espaço</p>
       <h2 className="mt-6 max-w-2xl text-balance font-serif text-4xl leading-[1.08] tracking-tight md:text-6xl">
-        Um refúgio <span className="italic text-terracota">no centro.</span>
+        Um refúgio no centro.
       </h2>
       <p className="mt-6 max-w-xl text-base leading-8 text-espresso/65">{historia.espaco}</p>
     </Reveal>

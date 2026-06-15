@@ -27,7 +27,7 @@ export function Avaliacoes() {
           <div>
             <p className="kicker">Quem senta, volta</p>
             <h2 className="mt-5 max-w-xl text-balance font-serif text-4xl leading-[1.08] tracking-tight md:text-5xl">
-              O que dizem de <span className="italic text-terracota">manhã.</span>
+              O que dizem de manhã.
             </h2>
           </div>
           <div className="flex items-baseline gap-3">

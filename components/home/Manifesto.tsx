@@ -11,7 +11,7 @@ export function Manifesto() {
       />
       <div className="container-page relative text-center">
         <Reveal>
-          <p className="kicker">Manifesto</p>
+          <p className="kicker">01 — Manifesto</p>
         </Reveal>
 
         {/* Contraste de escala: a frase prepara, "É pausa." domina. */}

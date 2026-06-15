@@ -8,9 +8,9 @@ export function Visite() {
     <section className="bg-creme py-28 md:py-40">
       <div className="container-page grid gap-12 md:grid-cols-2 md:items-center md:gap-16">
         <Reveal>
-          <p className="kicker">Visite</p>
+          <p className="kicker">07 — Visite</p>
           <h2 className="mt-6 text-balance font-serif text-4xl leading-[1.08] tracking-tight md:text-6xl">
-            A porta abre <span className="italic text-terracota">às 7h.</span>
+            A porta abre às 7h.
           </h2>
 
           <div className="mt-10 space-y-6 text-sm leading-7 text-espresso/70">

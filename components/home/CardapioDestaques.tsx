@@ -8,9 +8,9 @@ export function CardapioDestaques() {
     <section className="bg-creme pb-28 md:pb-40">
       <div className="container-page">
         <Reveal>
-          <p className="kicker">Da casa</p>
+          <p className="kicker">04 — Da casa</p>
           <h2 className="mt-6 max-w-2xl text-balance font-serif text-4xl leading-[1.08] tracking-tight md:text-6xl">
-            Pra beber <span className="italic text-terracota">devagar.</span>
+            Pra beber devagar.
           </h2>
         </Reveal>
 

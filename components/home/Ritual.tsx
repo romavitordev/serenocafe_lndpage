@@ -21,7 +21,7 @@ export function Ritual() {
 
       <div className="container-page relative text-center">
         <Reveal>
-          <p className="kicker-creme">O ritual</p>
+          <p className="kicker-creme">06 — O ritual</p>
         </Reveal>
         <h2 className="mx-auto mt-8 max-w-3xl font-serif text-[clamp(2.2rem,5.5vw,4rem)] leading-[1.12] tracking-tight">
           <SplitWords text="Toda manhã guarda um instante que é só seu." />
