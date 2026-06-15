@@ -9,7 +9,6 @@ import { LenisProvider } from '@/components/layout/LenisProvider'
 import { PageTransition } from '@/components/layout/PageTransition'
 import { GrainOverlay } from '@/components/fx/GrainOverlay'
 import { Preloader } from '@/components/fx/Preloader'
-import { CustomCursor } from '@/components/fx/CustomCursor'
 import { ScrollProgress } from '@/components/fx/ScrollProgress'
 import { AmbientSound } from '@/components/fx/AmbientSound'
 import { ReservaModal } from '@/components/home/ReservaModal'
@@ -133,7 +132,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         <GrainOverlay />
         <Preloader />
-        <CustomCursor />
         <ScrollProgress />
         <LenisProvider />
         <Header />

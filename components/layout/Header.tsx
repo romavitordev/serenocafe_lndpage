@@ -14,11 +14,6 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [aberto, setAberto] = useState(false)
 
-  const isHome = pathname === '/'
-  // Na home o header começa transparente sobre a hero escura;
-  // nas internas (fundo creme) ele já nasce sólido.
-  const solido = scrolled || !isHome || aberto
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32)
     onScroll()
@@ -37,13 +32,13 @@ export function Header() {
     return () => window.removeEventListener('keydown', onKey)
   }, [aberto])
 
-  const tom = aberto ? 'text-creme' : solido ? 'text-espresso' : 'text-creme'
+  // O header nasce sempre visível (a hero é clara): texto espresso, fundo
+  // creme translúcido que fica um pouco mais sólido ao rolar.
+  const tom = aberto ? 'text-creme' : 'text-espresso'
 
   const fundo = aberto
     ? 'border-b border-creme/10 bg-espresso'
-    : solido
-      ? 'border-b border-espresso/10 bg-creme/85 backdrop-blur-md'
-      : 'border-b border-transparent bg-transparent'
+    : `border-b backdrop-blur-md ${scrolled ? 'border-espresso/10 bg-creme/90' : 'border-espresso/5 bg-creme/70'}`
 
   return (
     <header className={`fixed inset-x-0 top-0 z-[80] transition-colors duration-500 ${fundo}`}>

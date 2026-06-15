@@ -13,9 +13,6 @@ const POSTER = `${BASE}/media/hero-poster.jpg`
 const SRC_DESKTOP = `${BASE}/media/hero.mp4`
 const SRC_MOBILE = `${BASE}/media/hero-mobile.mp4`
 
-// Feather: dissolve as bordas brancas do vídeo no creme (vira "poça de luz").
-const MASK = 'radial-gradient(66% 80% at 50% 60%, #000 38%, transparent 74%)'
-
 type Modo = 'carregando' | 'video' | 'estatico'
 
 export function HeroVideoScroll() {
@@ -106,7 +103,7 @@ export function HeroVideoScroll() {
               height={1080}
               priority
               className="h-[82svh] w-full max-w-full object-contain object-bottom md:h-[94svh]"
-              style={{ WebkitMaskImage: MASK, maskImage: MASK }}
+              style={{ mixBlendMode: 'multiply' }}
             />
           ) : (
             <>
@@ -118,7 +115,7 @@ export function HeroVideoScroll() {
                 height={1080}
                 priority
                 className={`absolute bottom-0 h-[82svh] w-full max-w-full object-contain object-bottom transition-opacity duration-500 md:h-[94svh] ${pronto ? 'opacity-0' : 'opacity-100'}`}
-                style={{ WebkitMaskImage: MASK, maskImage: MASK }}
+                style={{ mixBlendMode: 'multiply' }}
               />
               <video
                 ref={video}
@@ -129,7 +126,7 @@ export function HeroVideoScroll() {
                 width={1920}
                 height={1080}
                 className="h-[82svh] w-full max-w-full object-contain object-bottom md:h-[94svh]"
-                style={{ WebkitMaskImage: MASK, maskImage: MASK }}
+                style={{ mixBlendMode: 'multiply' }}
                 onLoadedData={() => setPronto(true)}
               >
                 <source src={src} type="video/mp4" />
