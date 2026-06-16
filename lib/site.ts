@@ -64,45 +64,141 @@ export const waMensagens = {
 /* Cardápio                                                            */
 /* ------------------------------------------------------------------ */
 
-export type ItemCardapio = { nome: string; descricao?: string; preco: string }
+export type ItemCardapio = { nome: string; descricao?: string; preco: string; historia?: string }
 
 export const cardapio: { categoria: string; nota?: string; itens: ItemCardapio[] }[] = [
   {
     categoria: 'Métodos',
     nota: 'Todos os métodos saem com o grão da semana. Pergunte qual está no moinho.',
     itens: [
-      { nome: 'Espresso', descricao: 'Curto, doce, extraído na faixa de 25s.', preco: 'R$ 7' },
-      { nome: 'Coado V60', descricao: 'O nosso ritual. Servido na jarra, rende duas xícaras.', preco: 'R$ 16' },
-      { nome: 'Prensa francesa', descricao: 'Corpo cheio, quatro minutos de infusão.', preco: 'R$ 15' },
-      { nome: 'Aeropress', descricao: 'Limpo e intenso, pressão na medida.', preco: 'R$ 16' },
-      { nome: 'Cold brew', descricao: 'Extração a frio por 18 horas. Servido com gelo de café.', preco: 'R$ 14' },
+      {
+        nome: 'Espresso',
+        descricao: 'Curto, doce, extraído na faixa de 25s.',
+        preco: 'R$ 7',
+        historia:
+          'Puxado entre 25 e 30 segundos, na pressão certa pra extrair doçura sem amargor. Moagem, dose e tempo são recalibrados na hora pro grão da semana. Se a extração não sai redonda, a dose vai fora e a gente começa de novo — sem dó.',
+      },
+      {
+        nome: 'Coado V60',
+        descricao: 'O nosso ritual. Servido na jarra, rende duas xícaras.',
+        preco: 'R$ 16',
+        historia:
+          'Água a 92°C despejada em círculos lentos, em quatro tempos. A primeira só molha o pó — a florada, que libera o gás da torra fresca; as seguintes extraem no tempo exato. Sai limpo, aromático e servido na jarra, feito pra durar a conversa.',
+      },
+      {
+        nome: 'Prensa francesa',
+        descricao: 'Corpo cheio, quatro minutos de infusão.',
+        preco: 'R$ 15',
+        historia:
+          'Imersão total: o pó descansa quatro minutos na água quente antes de prensar devagar. Mantém todos os óleos do grão na xícara — corpo encorpado, textura redonda. O método mais honesto que existe: nada se esconde.',
+      },
+      {
+        nome: 'Aeropress',
+        descricao: 'Limpo e intenso, pressão na medida.',
+        preco: 'R$ 16',
+        historia:
+          'Fazemos pela receita invertida: o café infunde primeiro, longe da gravidade, e só depois a gente vira e pressiona com calma. O resultado é intenso e sem borra nenhuma — o método que mais respeita as notas delicadas dos lotes mais claros.',
+      },
+      {
+        nome: 'Cold brew',
+        descricao: 'Extração a frio por 18 horas. Servido com gelo de café.',
+        preco: 'R$ 14',
+        historia:
+          'Dezoito horas de extração a frio, sem pressa e sem calor — o que deixa o café doce, macio e de baixíssima acidez. Servimos com gelo feito do próprio cold brew, pra não diluir: o último gole é tão intenso quanto o primeiro.',
+      },
     ],
   },
   {
     categoria: 'Com leite',
     itens: [
-      { nome: 'Flat white', descricao: 'Dose dupla, microespuma fina.', preco: 'R$ 13' },
-      { nome: 'Cortado', descricao: 'Metade café, metade leite vaporizado.', preco: 'R$ 11' },
-      { nome: 'Cappuccino', descricao: 'Clássico, sem canela — a não ser que você peça.', preco: 'R$ 13' },
-      { nome: 'Latte', descricao: 'Suave, com latte art da casa.', preco: 'R$ 14' },
+      {
+        nome: 'Flat white',
+        descricao: 'Dose dupla, microespuma fina.',
+        preco: 'R$ 13',
+        historia:
+          'Dose dupla de espresso sob uma microespuma fina e brilhante — menos espuma que o cappuccino, mais café. Pra quem quer sentir o grão por trás do leite, não o contrário.',
+      },
+      {
+        nome: 'Cortado',
+        descricao: 'Metade café, metade leite vaporizado.',
+        preco: 'R$ 11',
+        historia:
+          'Metade espresso, metade leite vaporizado — a proporção exata pra arredondar a intensidade sem apagar o café. Servido pequeno e quente, no ponto de tomar em poucos goles.',
+      },
+      {
+        nome: 'Cappuccino',
+        descricao: 'Clássico, sem canela — a não ser que você peça.',
+        preco: 'R$ 13',
+        historia:
+          'Espresso, leite vaporizado e uma camada generosa de espuma aveludada, na proporção clássica. Sem canela por padrão — respeitamos o aroma do café. Mas se você pedir, a gente polvilha.',
+      },
+      {
+        nome: 'Latte',
+        descricao: 'Suave, com latte art da casa.',
+        preco: 'R$ 14',
+        historia:
+          'Suave e sedoso, com bastante leite texturizado e um desenho na superfície. A latte art não é enfeite: é a prova de que o leite foi vaporizado no ponto certo, cremoso e sem bolhas.',
+      },
     ],
   },
   {
     categoria: 'Autorais',
     nota: 'Receitas da casa, criadas na bancada de torra.',
     itens: [
-      { nome: 'Sereno', descricao: 'Espresso, tônica gelada e casca de laranja.', preco: 'R$ 18' },
-      { nome: 'Manhã de Cerrado', descricao: 'Latte adoçado com rapadura, toque de baunilha.', preco: 'R$ 16' },
+      {
+        nome: 'Sereno',
+        descricao: 'Espresso, tônica gelada e casca de laranja.',
+        preco: 'R$ 18',
+        historia:
+          'A bebida que leva o nome da casa. Espresso encorpado sobre tônica gelada, com uma casca de laranja torcida na hora pra soltar o óleo cítrico. O amargo do café encontra o borbulhante e o cítrico — refrescante, complexo e criado na nossa própria bancada de torra.',
+      },
+      {
+        nome: 'Manhã de Cerrado',
+        descricao: 'Latte adoçado com rapadura, toque de baunilha.',
+        preco: 'R$ 16',
+        historia:
+          'Uma homenagem ao Cerrado, nosso grão de todo dia. Latte adoçado com rapadura derretida e um toque de baunilha — doce na medida, com o aconchego de uma manhã de fazenda mineira.',
+      },
     ],
   },
   {
     categoria: 'Comidas',
     itens: [
-      { nome: 'Pão de fermentação natural', descricao: 'Fatia grossa, manteiga de garrafa.', preco: 'R$ 12' },
-      { nome: 'Bolo de fubá cremoso', descricao: 'Receita da avó da casa, ponto de cremoso exato.', preco: 'R$ 11' },
-      { nome: 'Cookie de cacau 70%', descricao: 'Casquinha crocante, centro macio.', preco: 'R$ 9' },
-      { nome: 'Ovos no brioche', descricao: 'Ovos moles, brioche tostado na manteiga, ervas.', preco: 'R$ 24' },
-      { nome: 'Granola da casa', descricao: 'Iogurte, mel do produtor e frutas da estação.', preco: 'R$ 18' },
+      {
+        nome: 'Pão de fermentação natural',
+        descricao: 'Fatia grossa, manteiga de garrafa.',
+        preco: 'R$ 12',
+        historia:
+          'Massa de fermentação natural, levedada por mais de 24 horas — casca crocante, miolo alveolado. Fatia grossa servida com manteiga de garrafa. Assado todo dia em pouca quantidade: quando acaba, acabou.',
+      },
+      {
+        nome: 'Bolo de fubá cremoso',
+        descricao: 'Receita da avó da casa, ponto de cremoso exato.',
+        preco: 'R$ 11',
+        historia:
+          'Receita da avó de um da casa, no ponto exato entre bolo e pudim. Fubá fino, casca dourada, centro cremoso. Foi feito pra acompanhar o coado — e acompanha.',
+      },
+      {
+        nome: 'Cookie de cacau 70%',
+        descricao: 'Casquinha crocante, centro macio.',
+        preco: 'R$ 9',
+        historia:
+          'Cacau 70% de verdade, casquinha crocante e centro macio que ainda escorre quando está morno. Pequenas fornadas ao longo do dia, sem conservante — peça quentinho.',
+      },
+      {
+        nome: 'Ovos no brioche',
+        descricao: 'Ovos moles, brioche tostado na manteiga, ervas.',
+        preco: 'R$ 24',
+        historia:
+          'Ovos moles sobre brioche tostado na manteiga, com um fio de ervas frescas. Nosso prato de brunch — pedido sem pressa, de preferência num fim de semana de sol entrando pela janela.',
+      },
+      {
+        nome: 'Granola da casa',
+        descricao: 'Iogurte, mel do produtor e frutas da estação.',
+        preco: 'R$ 18',
+        historia:
+          'Granola assada aqui, com mel de um produtor da região, servida sobre iogurte natural e frutas da estação. Crocante, sem açúcar refinado — o café da manhã que a gente queria comer todo dia.',
+      },
     ],
   },
 ]
