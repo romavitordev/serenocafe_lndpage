@@ -24,7 +24,7 @@ export default function GraosPage() {
           <Reveal>
             <p className="kicker-creme">Torrefação</p>
             <h1 className="mt-6 max-w-2xl text-balance font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl">
-              A calma vai <span className="italic text-terracota">pra sua casa.</span>
+              A calma vai pra sua casa.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-creme/65">{historia.curta}</p>
           </Reveal>
@@ -52,23 +52,29 @@ export default function GraosPage() {
                 </div>
 
                 <div>
-                  <p className="kicker">{grao.origem}</p>
-                  <h2 className="mt-4 font-serif text-4xl tracking-tight md:text-5xl">{grao.nome}</h2>
+                  <p className="font-mono text-sm text-terracota">
+                    Lote 0{i + 1}
+                    <span className="text-espresso/30"> / 0{graos.length}</span>
+                  </p>
+                  <p className="kicker mt-3">{grao.origem}</p>
+                  <h2 className="mt-3 font-serif text-4xl tracking-tight md:text-5xl">{grao.nome}</h2>
                   <p className="mt-5 max-w-md text-base leading-8 text-espresso/65">{grao.descricao}</p>
+                  <p className="mt-4 max-w-md text-sm leading-7 text-espresso/55">{grao.historia}</p>
 
-                  <dl className="mt-8 grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-3">
-                    <div>
-                      <dt className="text-[0.65rem] uppercase tracking-[0.22em] text-espresso/45">Processo</dt>
-                      <dd className="mt-1 font-medium">{grao.processo}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-[0.65rem] uppercase tracking-[0.22em] text-espresso/45">Altitude</dt>
-                      <dd className="mt-1 font-medium">{grao.altitude}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-[0.65rem] uppercase tracking-[0.22em] text-espresso/45">Torra</dt>
-                      <dd className="mt-1 font-medium">{grao.torra}</dd>
-                    </div>
+                  <dl className="mt-8 grid grid-cols-2 gap-x-8 gap-y-4 text-sm sm:grid-cols-4">
+                    {(
+                      [
+                        ['Produtor', grao.produtor],
+                        ['Processo', grao.processo],
+                        ['Altitude', grao.altitude],
+                        ['Torra', grao.torra],
+                      ] as const
+                    ).map(([dt, dd]) => (
+                      <div key={dt}>
+                        <dt className="label-mono text-espresso/45">{dt}</dt>
+                        <dd className="mt-1.5 font-medium">{dd}</dd>
+                      </div>
+                    ))}
                   </dl>
 
                   <div className="mt-7 flex flex-wrap gap-2 text-avela">
@@ -80,7 +86,7 @@ export default function GraosPage() {
                   </div>
 
                   <div className="mt-9 flex flex-wrap items-center gap-5">
-                    <p className="font-serif text-2xl italic text-terracota">250g — {grao.preco}</p>
+                    <p className="font-mono text-xl text-terracota">250g · {grao.preco}</p>
                     <a
                       href={waLink(waMensagens.grao(grao.nome, grao.preco))}
                       target="_blank"
@@ -103,7 +109,7 @@ export default function GraosPage() {
           <Reveal className="text-center">
             <p className="kicker-creme">{assinatura.nome}</p>
             <h2 className="mx-auto mt-6 max-w-2xl text-balance font-serif text-4xl leading-[1.08] tracking-tight md:text-6xl">
-              O café muda. <span className="italic text-terracota">A calma fica.</span>
+              O café muda. A calma fica.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base leading-8 text-creme/65">
               {assinatura.descricao}
@@ -116,7 +122,7 @@ export default function GraosPage() {
                 <div className="flex h-full flex-col rounded-2xl border border-creme/15 bg-noite p-8 transition-all duration-500 hover:-translate-y-1.5 hover:border-terracota/60">
                   <h3 className="font-serif text-2xl tracking-tight">{plano.nome}</h3>
                   <p className="mt-2 text-sm leading-7 text-creme/55">{plano.detalhe}</p>
-                  <p className="mt-6 font-serif text-4xl italic text-terracota">
+                  <p className="mt-6 font-mono text-4xl text-terracota">
                     {plano.preco}
                     <span className="ml-1 font-sans text-xs not-italic text-creme/45">/mês</span>
                   </p>

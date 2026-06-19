@@ -29,7 +29,7 @@ export default function VisitePage() {
           <Reveal>
             <p className="kicker">Visite</p>
             <h1 className="mt-6 max-w-2xl text-balance font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl">
-              Vem ficar <span className="italic text-terracota">um pouco.</span>
+              Vem ficar um pouco.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-8 text-espresso/65">{historia.espaco}</p>
           </Reveal>
@@ -73,7 +73,7 @@ export default function VisitePage() {
         <div className="container-page grid gap-14 md:grid-cols-2 md:gap-20">
           <Reveal>
             <h2 className="font-serif text-3xl tracking-tight md:text-5xl">
-              O que esperar <span className="italic text-terracota">da visita.</span>
+              O que esperar da visita.
             </h2>
             <ul className="mt-10 space-y-6">
               {esperar.map(({ icone: Icone, texto }) => (

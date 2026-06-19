@@ -219,12 +219,14 @@ export type Grao = {
   id: string
   nome: string
   origem: string
+  produtor: string
   processo: string
   altitude: string
   notas: string[]
   torra: string
   preco: string
   descricao: string
+  historia: string
   imagem: string
   imagemAlt: string
 }
@@ -234,6 +236,7 @@ export const graos: Grao[] = [
     id: 'cerrado',
     nome: 'Cerrado',
     origem: 'Cerrado Mineiro — MG',
+    produtor: 'Família Avelar',
     processo: 'Natural',
     altitude: '1.100 m',
     notas: ['Chocolate', 'Caramelo', 'Nozes'],
@@ -241,6 +244,8 @@ export const graos: Grao[] = [
     preco: 'R$ 42',
     descricao:
       'O grão de todo dia da casa. Doce, redondo e sem pressa — feito para o primeiro café da manhã e para o último da tarde.',
+    historia:
+      'Vem de uma família que planta no Cerrado Mineiro há três gerações. Processo natural: o grão seca dentro do fruto, no terreiro, concentrando a doçura. Torramos médio e sem pressa, pra ele caber em qualquer hora do dia.',
     imagem:
       'https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1200&q=80',
     imagemAlt: 'Grãos de café torrados espalhados sobre superfície escura',
@@ -249,6 +254,7 @@ export const graos: Grao[] = [
     id: 'catuai-amarelo',
     nome: 'Catuaí Amarelo',
     origem: 'Sul de Minas — MG',
+    produtor: 'Sítio Boa Vista',
     processo: 'Lavado',
     altitude: '1.200 m',
     notas: ['Laranja', 'Mel', 'Floral'],
@@ -256,6 +262,8 @@ export const graos: Grao[] = [
     preco: 'R$ 46',
     descricao:
       'Limpo e luminoso. A acidez da laranja chega primeiro, o mel segura o final. Nosso preferido no coado.',
+    historia:
+      'Colhido a dedo no Sul de Minas, só os frutos maduros. O processo lavado limpa o copo e deixa a acidez brilhar — laranja na frente, mel no fim. Torra mais clara, pra não esconder nada do que a fruta tem.',
     imagem:
       'https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=1200&q=80',
     imagemAlt: 'Duas xícaras de café sobre barril de madeira, com folhagens ao redor',
@@ -264,6 +272,7 @@ export const graos: Grao[] = [
     id: 'diamantina',
     nome: 'Diamantina',
     origem: 'Chapada Diamantina — BA',
+    produtor: 'Coletivo Chapada',
     processo: 'Natural',
     altitude: '1.300 m',
     notas: ['Morango', 'Vinho', 'Cacau'],
@@ -271,6 +280,8 @@ export const graos: Grao[] = [
     preco: 'R$ 52',
     descricao:
       'O micro-lote raro da estação. Frutado, vinoso, quase sobremesa. Poucas sacas, torra clara para não esconder nada.',
+    historia:
+      'O raro da casa: poucas sacas de um coletivo da Chapada Diamantina, a 1.300 metros. Natural e frutado, quase vinho — torra clara pra preservar o morango e o cacau. Quando acaba, é só no ano que vem.',
     imagem:
       'https://images.unsplash.com/photo-1610632380989-680fe40816c6?auto=format&fit=crop&w=1200&q=80',
     imagemAlt: 'Xícara escura com grãos de café saltando, em luz dramática',

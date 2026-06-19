@@ -17,3 +17,7 @@ npm-debug.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# arquivos soltos nao relacionados
+atividade_soma.pdf
+*.pdf
