@@ -1,6 +1,6 @@
 import './globals.css'
 
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { DM_Sans, Fraunces, JetBrains_Mono } from 'next/font/google'
 
 import { Footer } from '@/components/layout/Footer'
@@ -67,6 +67,11 @@ export const metadata: Metadata = {
     images: [imagens.og],
   },
   robots: { index: true, follow: true },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#F3ECE0',
+  colorScheme: 'light',
 }
 
 const jsonLd = {

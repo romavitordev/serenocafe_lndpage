@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Instagram, MessageCircle } from 'lucide-react'
+import { Github, Instagram, MessageCircle } from 'lucide-react'
 
 import { brand, endereco, horarios, nav, waLink, waMensagens } from '@/lib/site'
 
@@ -67,8 +67,16 @@ export function Footer() {
       </div>
 
       <div className="container-page flex flex-col gap-2 border-t border-creme/10 py-6 text-xs text-creme/45 md:flex-row md:items-center md:justify-between">
-        <p>© {ano} Sereno — café &amp; torrefação</p>
-        <p>Projeto conceitual — marca fictícia para portfólio.</p>
+        <p>© {ano} Sereno — projeto conceitual (marca fictícia)</p>
+        <a
+          href="https://github.com/romavitordev"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 transition-colors hover:text-terracota"
+        >
+          <Github size={14} aria-hidden />
+          Desenvolvido por romavitordev
+        </a>
       </div>
     </footer>
   )

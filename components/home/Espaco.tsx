@@ -29,6 +29,7 @@ export function Espaco() {
   const ultimoX = useRef(0)
   const raf = useRef(0)
   const arrastandoRef = useRef(false)
+  const secao = useRef<HTMLElement>(null)
 
   const medir = useCallback(() => {
     const f = faixa.current
@@ -57,7 +58,9 @@ export function Espaco() {
     medir()
     window.addEventListener('resize', medir)
 
+    let rodando = false
     const loop = () => {
+      if (!rodando) return
       if (!arrastandoRef.current) {
         pos.current += vel.current + DERIVA
         vel.current *= 0.92
@@ -71,9 +74,23 @@ export function Espaco() {
       aplica()
       raf.current = requestAnimationFrame(loop)
     }
-    raf.current = requestAnimationFrame(loop)
-    return () => {
+    const start = () => {
+      if (rodando) return
+      rodando = true
+      raf.current = requestAnimationFrame(loop)
+    }
+    const stop = () => {
+      rodando = false
       cancelAnimationFrame(raf.current)
+    }
+
+    // Só anima enquanto a seção está na tela — poupa CPU/bateria.
+    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? start() : stop()), { threshold: 0 })
+    if (secao.current) io.observe(secao.current)
+
+    return () => {
+      stop()
+      io.disconnect()
       window.removeEventListener('resize', medir)
     }
   }, [aplica, medir])
@@ -97,6 +114,17 @@ export function Espaco() {
     arrastandoRef.current = false
     setArrastando(false)
   }
+  const onKey = (e: React.KeyboardEvent) => {
+    if (reduz) return
+    const passo = setW.current / fotos.length || 280
+    if (e.key === 'ArrowLeft') {
+      pos.current += passo
+      vel.current = 14
+    } else if (e.key === 'ArrowRight') {
+      pos.current -= passo
+      vel.current = -14
+    }
+  }
 
   if (reduz) {
     return (
@@ -117,13 +145,17 @@ export function Espaco() {
   }
 
   return (
-    <section className="overflow-hidden bg-creme py-28 md:py-40">
+    <section ref={secao} className="overflow-hidden bg-creme py-28 md:py-40">
       <div className="container-page">
         <Cabecalho />
       </div>
 
       <div
-        className="mt-14 overflow-hidden"
+        role="group"
+        tabIndex={0}
+        aria-label="Galeria do espaço — use as setas para navegar"
+        onKeyDown={onKey}
+        className="mt-14 overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-terracota focus-visible:ring-offset-4 focus-visible:ring-offset-creme"
         style={{ cursor: arrastando ? 'grabbing' : 'grab' }}
         data-cursor="arraste"
       >
